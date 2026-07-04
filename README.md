@@ -1,204 +1,34 @@
-# Driver Drowsiness Detection Key Features
-- Real-time monitoring of driver's eyes using a camera
-- Fatigue and drowsiness detection algorithm
-- Timely alerts to prevent the driver from falling asleep
-- Non-intrusive and easy to set up
-- Progressive Web App (PWA) support - Install like a native app!
-- Offline functionality with caching
-- Fast loading with optimized performance on System
+Real-Time Driver Fatigue Monitoring System
+This project is a sophisticated, non-intrusive safety solution designed to combat one of the primary causes of road accidents: driver exhaustion. By leveraging computer vision and machine learning, the system provides a continuous vigil over the driver's physiological state, ensuring that early signs of fatigue are met with immediate alerts.
 
-<p align="center">
-  <img src="https://img.shields.io/github/stars/Gagandeep-2003/Driver-Drowsiness-Detection-System?style=social" alt="GitHub stars" />
-  <img src="https://img.shields.io/github/forks/Gagandeep-2003/Driver-Drowsiness-Detection-System?style=social" alt="GitHub forks" />
-  <img src="https://img.shields.io/github/issues/Gagandeep-2003/Driver-Drowsiness-Detection-System" alt="GitHub issues" />
-</p>
+Project Highlights and Key Points
+Non-Intrusive Computer Vision: The system utilizes a standard camera feed to monitor the driver without requiring wearable sensors or physical attachments, ensuring a natural driving experience.
+Eye Aspect Ratio (EAR) Analysis: At the core of the detection logic is the calculation of the Eye Aspect Ratio. By tracking specific landmarks around the eyelids, the system can mathematically determine if the eyes are open, drooping, or closed for extended periods.
+Real-Time Drowsiness Classification: The software processes video frames in real-time, applying specific thresholds to distinguish between natural blinking and the prolonged eye closure associated with micro-sleep or heavy fatigue.
+Multi-Layered Alerting System: Upon detecting a fatigue event, the system triggers immediate audible alarms (via .wav or .mp3 files) and visual overlays on the interface to snap the driver back to attention.
+Lane Detection Integration: Beyond internal monitoring, the project includes modules for lane detection to identify if fatigue is causing the vehicle to drift, providing a holistic view of the vehicle's safety status. 
+github.com
+Hybrid PWA Capability: The system is built as a Progressive Web App (PWA). This allows it to be installed on mobile or desktop devices like a native application, offering offline functionality and faster load times through resource caching. 
+github.com
+Scalable Architecture: The project structure separates core detection logic from the User Interface, making it easy to swap detection models (e.g., moving from Dlib to Mediapipe) or update the UI without breaking the underlying algorithms.
+Cloud and IoT Compatibility: Recent research into similar hybrid frameworks shows that these systems can be integrated with cloud platforms like Microsoft Azure for fleet management and anomaly detection. 
+sciencedirect.com
+Technical Stack
+The "Real-Time Driver Fatigue Monitoring System" employs a robust stack of modern libraries and frameworks to ensure high performance and reliability:
 
-
-## Project Overview
-The Driver Drowsiness Detection System is a non-intrusive solution designed to monitor and detect signs of fatigue in drivers. By analyzing eye states through a camera feed, the system can identify early symptoms of drowsiness and issue timely warnings, helping to prevent accidents caused by driver fatigue. This project aims to enhance road safety, especially for those driving long distances who may not recognize their own drowsiness in time.
-
-## ⭐ Support the Project
-
-If you find this project helpful, please consider giving it a **star** ⭐ on GitHub!  
-It helps others discover the project and motivates us to keep improving it.
-
-👉 Click the ⭐ button at the top-right of this page!
-
-[![GitHub stars](https://img.shields.io/github/stars/Gagandeep-2003/Driver-Drowsiness-Detection-System.svg?style=social)](https://github.com/Gagandeep-2003/Driver-Drowsiness-Detection-System/stargazers)
-
-
-## Key Features
-- Real-time monitoring of driver’s eyes using a camera
-- Fatigue and drowsiness detection algorithm
-- Timely alerts to prevent the driver from falling asleep
-- Non-intrusive and easy to set up
-
-## Technologies Used
-- Python
-- OpenCV
-- Dlib or Mediapipe (for facial landmark detection)
-- NumPy, Pandas
-
-  
- ## Optional: create a virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-
-## Setup Instructions
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Gagandeep-2003/Driver-Drowsiness-Detection-System.git
-   cd Driver-Drowsiness-Detection-System
-   ```
-2. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. **Download the model:**
-
-    The dlib facial landmark model is required for blink detection. Download it from the link below, unzip it, and place the `shape_predictor_68_face_landmarks.dat` file inside the `/models` directory.
-    * **Download Link**: [shape_predictor_68_face_landmarks.dat](https://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2)
-
-4. **Run the application:**
-   ```bash
-   python main.py
-   ```
-   (Replace `main.py` with the actual entry point if different.)
-
-## Usage
-- Ensure your webcam is connected.
-- Run the application as shown above.
-- The system will start monitoring your eyes and alert you if signs of drowsiness are detected.
-
-## Folder Structure
-```
-driver-drowsiness-detection-system/
-│
-├── main.py                  # Entry point for the system
-├── blinkDetect.py            # Drowsiness detection script
-├── lanedetection.py          # Lane detection module
-├── ui.py                     # User interface handling
-├── requirements.txt          # Python dependencies
-├── CONTRIBUTING.md           # Contribution guidelines
-├── DEPLOYMENT.md             # Deployment instructions
-├── PWA_README.md              # PWA installation & usage
-├── PWA_IMPLEMENTATION.md      # Technical details of PWA
-│
-├── models/                   # Pre-trained ML models
-│   └── haarcascade_frontalface_default.xml
-│
-├── streamlit_app/            # Web app (Streamlit + PWA)
-│   ├── streamlit_app.py
-│   ├── streamlit_app_pwa.py
-│   ├── manifest.json
-│   ├── sw.js
-│   └── icons/                # App icons for PWA
-│
-├── assets/                   # Images, audio, and test files
-│   ├── alarm.wav
-│   ├── alarm.mp3
-│   ├── eye.PNG
-│   ├── eye_aspect_ratio.PNG
-│   ├── face.PNG
-│   └── test_image.jpg
-
-```
-
-## Contribution Guidelines
-We welcome contributions to improve this project! To get started:
-1. **Star** ⭐ this repository to show your support.
-2. **Fork** 🍴 the repository to your own GitHub account.
-3. Create a new branch for your feature or bugfix.
-4. Make your changes and commit them with clear messages.
-5. Push your branch to your forked repo.
-6. Open a Pull Request describing your changes.
-
----
-
-## 📋 Project Board & Roadmap
-
-We are actively tracking progress and assigning tasks for **GSSoC'25** in our GitHub Project Board.  
-You can see which issues are **To Do**, **In Progress**, or **Completed**, and pick one to start contributing.
-
-🚀 **[View the GSSoC 2025 Roadmap Project →](https://github.com/users/Gagandeep-2003/projects/1)**
-
-> ℹ️ To work on an issue:
-> 1. Comment on the issue stating your interest.
-> 2. We’ll assign it to you under the appropriate GSSoC’25 level.
-> 3. Track your progress via the Project Board.
-
-## 🌐 Streamlit Web App (New Feature!)
-
-This app version uses Streamlit + Mediapipe to detect drowsiness via webcam directly in the browser.
-
-### Usage:
-```bash
-# Standard web app
-streamlit run streamlit_app/streamlit_app.py
-
-# Or run the enhanced PWA version
-streamlit run streamlit_app/streamlit_app_pwa.py
-```
-
-## 📱 Progressive Web App (PWA) Support
-
-**NEW!** This project now supports Progressive Web App functionality! Install it like a native app on your device.
-
-### PWA Features:
-- 📱 **Installable**: Add to home screen on mobile/desktop
-- 🚀 **Fast Loading**: Cached resources for better performance  
-- 🔄 **Offline Support**: Basic functionality without internet
-- 📲 **App-like Experience**: Full-screen, native app behavior
-
-### Quick PWA Installation:
-1. **Mobile**: Open in browser → Menu → "Add to Home Screen"
-2. **Desktop**: Look for install icon in address bar → Click "Install"
-
-📖 **[Complete PWA Guide](PWA_README.md)** - Detailed installation and usage instructions
-
-Dependencies:
-Install using:
-```bash
-pip install -r requirements.txt
-```
-
-Features:
-- Real-time Eye Aspect Ratio (EAR) monitoring
-- Drowsiness warning overlay
-- Web-based UI with live video
-- **PWA installable web app**
-- **Offline caching support**
-
-If you have any questions or need guidance, feel free to open an issue or ask in the discussions!
-
----
-
-## 👥 Contributors
-
-Thanks to these wonderful people for contributing 💖
-
-<!-- contrib.rocks: auto-updating avatars grid -->
-[![Contributors](https://contrib.rocks/image?repo=Gagandeep-2003/driver-drowsiness-detection-system)](https://github.com/Gagandeep-2003/driver-drowsiness-detection-system/graphs/contributors)
-
-<!-- Vaunt.dev: auto-updating contributors graph (SVG) -->
-<p align="center">
-  <a href="https://github.com/Gagandeep-2003/driver-drowsiness-detection-system/graphs/contributors">
-    <img 
-      src="https://api.vaunt.dev/v1/github/entities/Gagandeep-2003/repositories/driver-drowsiness-detection-system/contributors?format=svg&limit=54" 
-      width="900" 
-      height="400" 
-      alt="Contributors Graph by Vaunt.dev" 
-    />
-  </a>
-</p>
-
-
-
-Thank you for your interest in improving the Driver Drowsiness Detection System! Your contributions are greatly appreciated.
-
-<p align="center">
-  <a href="#top" style="font-size: 18px; padding: 8px 16px; display: inline-block; border: 1px solid #ccc; border-radius: 6px; text-decoration: none;">
-    ⬆️ Back to Top
-  </a>
-</p>
+Core Programming & Processing
+Python: The primary language used for backend logic, algorithm implementation, and system integration.
+OpenCV: The powerhouse for real-time image processing, used for capturing video frames and rendering visual warnings.
+NumPy & Pandas: Utilized for high-performance mathematical calculations regarding facial landmark coordinates and data management.
+Computer Vision & AI
+Dlib: Employs the shape_predictor_68_face_landmarks.dat model to locate 68 specific points on the human face with high precision.
+Mediapipe: Used in the web-based Streamlit version for lightweight, browser-based facial and iris tracking.
+Deep Learning Models: Incorporates Haar Cascades for initial face detection and potentially Convolutional Neural Networks (CNN) for advanced behavior analysis. 
+faststreamtechnologies.medium.com
+Web & Deployment
+Streamlit: Provides the interactive web interface, allowing the system to run in a browser environment with minimal overhead.
+JavaScript (Service Workers): Enables the PWA features, including offline support and "Add to Home Screen" functionality.
+JSON: Used for the web app manifest to define device-side behavior and icons.
+Hardware & Environment
+Virtual Environments (venv): Ensures dependency isolation for easy setup across different operating systems.
+Hardware Agnostic: Designed to run on standard PC hardware with a basic webcam, though it is compatible with Arduino or IoT-based setups for electric vehicle integration.
